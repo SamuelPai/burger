@@ -48,12 +48,15 @@ var orm = {
 //     return(data);
 // }));
 
-console.log(orm.update(
-    {
-        burger_name: "Fatty Burger",
-        devoured: true
-    },
-    "burger_name = 'Fat Burger'"
-) 
-);
+// console.log(orm.update(
+//     {
+//         burger_name: "Fatty Burger",
+//         devoured: true
+//     },
+//     "burger_name = 'Fat Burger'"
+// ) 
+// );
+
+
+module.exports = orm;
 
