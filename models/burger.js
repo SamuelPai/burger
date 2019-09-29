@@ -1,13 +1,14 @@
 var orm = require("../config/orm");
 
 var burger = {
-    everything: function(cb) {
-        orm.everything(function(res) {
+    all: function(cb) {
+        orm.all("burgers", function(res) {
             cb(res);
         }); 
     },
-    insert: function(burger_name, devoured, cb) {
-        orm.insert(burger_name, devoured, function(res) {
+    create: function(burger_name, cb) {
+        orm.create(burger_name, function(res) {
+            console.log(cb(res))
             cb(res)
         })
     },
