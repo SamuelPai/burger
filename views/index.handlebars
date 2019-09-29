@@ -7,24 +7,9 @@
 <ul>
               {{#each burgers}}
                 {{#unless devoured}}
-                <div>
-                    <pre>{{burger_name}}
-                    </pre>
-                        <!-- {{this.Date}} -->
-                </div>
-                <div>
-                    <form id="devourForm">
-                        <input input type="hidden" class="burger_id" type="text" value={{this.id}}>
-                        <button id="devourbtn" type="submit" class="btn btn-default">Devour it!</button>
-                    </form>
-                </div>
+                    {{> burgers/burger-block devoured=false}}
                 {{/unless}}
               {{/each}}
-          
-        
-       
-    </div>
-</div>
 
 </ul>
 
@@ -33,8 +18,8 @@
 <ul>
    <div>
               {{#each burgers}}
-                {{#if this.devoured}}
-                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+                {{#if devoured}}
+                    {{> burgers/burger-block devoured=true}}
                 {{/if}}
               {{/each}}
         </div>
