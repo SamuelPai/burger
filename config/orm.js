@@ -1,5 +1,15 @@
 var connection = require("./connection");
 
+function printQuestionMarks(num) {
+    var arr = [];
+  
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+  
+    return arr.toString();
+  }
+
 function objToSql(ob) {
     var arr = [];
 
@@ -34,18 +44,26 @@ var orm = {
             console.log(data);
         });
     },
-    create: function (burger_name, cb) {
-        var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
-        connection.query(queryString, [burger_name], function (err, results) {
+    create: function (table, col, val, cb) {
+        var queryString = "INSERT INTO " + table + " (" +col.toString() + ") VALUES (" + printQuestionMarks(val.length) + ") ";
+        
+    
+        connection.query(queryString, val, function (err, results) {
             if (err) {
                 throw err
             }
             cb(results)
         });
     },
-    update: function (objColVals, condition, cb) {
-        var queryString = "UPDATE burgers SET " + objToSql(objColVals) + " WHERE " + condition;
-        connection.query(queryString, [objColVals, condition], cb);
+    update: function (table, objColVals, condition, cb) {
+        var queryString = "UPDATE " + table + " SET " + objToSql(objColVals) + " WHERE " + condition;
+        connection.query(queryString, function(err, result) {
+            if (err) {
+              throw err;
+            }
+      
+            cb(result);
+          });
     }
 }
 // console.log(orm.insert("Fat Burger", false, function(err, data) {

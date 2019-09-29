@@ -1,31 +1,32 @@
 <div class="container">
-    <img class="image1" src="https://buffetoblog.files.wordpress.com/2010/09/big-burger.jpg" width="200px" height="200px" alt="Burger">
+    <img id="testing" src="https://buffetoblog.files.wordpress.com/2010/09/big-burger.jpg" width="200px" height="200px" alt="Burger">
     
     <h1>Eat-Da-Burger!</h1>
 
 <h2>Burgers Available to Eat</h2>
-            <div class="row">
+<ul>
               {{#each burgers}}
-                {{#unless this.devoured}}
+                {{#unless devoured}}
                 <div>
-                    <pre>{{this.id}}. {{this.burger_name}}
+                    <pre>{{burger_name}}
                     </pre>
                         <!-- {{this.Date}} -->
                 </div>
                 <div>
-                    <form class="devour-form button-size">
-                        <input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
-                        <button type="submit" class="btn btn-default">Devour it!</button>
+                    <form id="devourForm">
+                        <input input type="hidden" class="burger_id" type="text" value={{this.id}}>
+                        <button id="devourbtn" type="submit" class="btn btn-default">Devour it!</button>
                     </form>
                 </div>
                 {{/unless}}
               {{/each}}
-            </div>
+          
         
        
     </div>
 </div>
 
+</ul>
 
 <h2>Burgers Eaten!</h2>
 
@@ -40,13 +41,13 @@
 </ul>
 
 
-    <form>
-        <form action="/burgers/create" method="POST">
-                <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-                <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+   
+        <form id="submitForm" action="/burgers/create" method="POST">
+                <input type="text" class="form-control" name="burger_name" id="burgerSub">
+                <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
             </form>
             <p>Enter a burger you want to eat, then click the "Submit" button!</p>
-    </form>
+  
 
 
 
