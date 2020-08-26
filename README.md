@@ -15,4 +15,8 @@ Install the dependencies by entering in the following command
 > npm install
 
 
-Then to start the server, simply run > node server.js and then go to the specified local host port number in your browser and you are good to go! 
+Then to start the server, simply run 
+
+> node server.js
+
+and then go to the specified local host port number in your browser and you are good to go! 
