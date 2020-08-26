@@ -1,10 +1,16 @@
-# burger
-a burger logger with MySQL, Node, Express, Handlebars and an ORM
+# Burger Eater
+A full stack application built with MySQL, Node, Express, Handlebars and an ORM
 
+# Description
+This full stack web application allows users to create burgers that will be stored in a relational database. Users can also choose to "eat" the burger which updates the contents in the database. All burgers that are created/updated will persist on the applications regardless if the user closes the app. 
 
+Back end routing is done with Node/Express while the front end UI is built with the handlebars templating engine and javascript/css.
 
-still need to finish the part where once I click Devour, it move the burger to the devoured section and update the database. Also need to put node_modules in a .gitignore file. And hide database password.
+# Installation
+To run the application locally on your machine, simply clone this respositry and clone it onto your computer. 
 
-Need to host on heroku (was having issues with JawsDB)
+Install the dependencies by entering in the following command
 
-Need to add css and design 
+<npm install>
+
+Then to start the server, simply run <node server.js> and then go to the specified local host port number in your browser and you are good to go! 
